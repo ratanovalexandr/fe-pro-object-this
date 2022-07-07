@@ -3,16 +3,16 @@ export const hotel = {
   priceByPlace: 20,
   bankAccount: 0,
   guests: {
-    0: {
-      firstName: 'Bohdan',
-      lastName: 'Rammfall',
-      money: 40,
-    },
-    1: {
-      firstName: 'Bohdan',
-      lastName: 'Rammfall',
-      money: 40,
-    },
+    // 0: {
+    //   firstName: 'Bohdan',
+    //   lastName: 'Rammfall',
+    //   money: 40,
+    // },
+    // 1: {
+    //   firstName: 'Bohdan',
+    //   lastName: 'Rammfall',
+    //   money: 40,
+    // },
   },
 
   getLength: function () {
@@ -20,7 +20,7 @@ export const hotel = {
   },
 
   getActualFreePlace: function () {
-    return this.quantityOfPlace - this.getLength();
+    return this.quantityOfPlaces - this.getLength();
   },
 
   paidPerPlace: function () {
@@ -35,11 +35,13 @@ export const hotel = {
     if (this.priceByPlace > money) {
       return 'Sorry, you have not enough money';
     }
+
     const user = {
       firstName: name,
       lastName,
       money: money - this.priceByPlace,
     };
+
     this.guests[this.getLength()] = user;
 
     this.paidPerPlace();
